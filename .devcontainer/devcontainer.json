@@ -13,25 +13,28 @@
 		"DOCKER_BUILDKIT": "1"
 	},
 	"mounts": [
-		"source=command_history,target=/root/command_history,type=volume",  // Persist command history across instances
-		"target=/root/.vscode-server,type=volume"  // Persist vscode server across instances
+		"source=command_history,target=/root/command_history,type=volume", // Persist command history across instances
+		"target=/root/.vscode-server,type=volume" // Persist vscode server across instances
 	],
 	"hostRequirements": {
-		"gpu": "optional"  // Mount GPU(s) if available
+		"gpu": "optional" // Mount GPU(s) if available
 	},
 	"postCreateCommand": "pre-commit install",
-	"postStartCommand": "git config --global core.editor \"code --wait\" && poetry install",
+	"postStartCommand": "git config --global core.editor \"code --wait\" && uv sync",
 	"shutdownAction": "none",
 	"customizations": {
 		"vscode": {
 			"settings": {
 				// General
-				"editor.rulers": [120],
+				"editor.rulers": [
+					120
+				],
 				"terminal.integrated.profiles.linux": {
-					"zsh": {"path": "/usr/bin/zsh"}
+					"zsh": {
+						"path": "/usr/bin/zsh"
+					}
 				},
 				"terminal.integrated.defaultProfile.linux": "zsh",
-
 				// Python
 				"[python]": {
 					"editor.defaultFormatter": "ms-python.black-formatter"
@@ -43,10 +46,13 @@
 					"test"
 				],
 				"python.testing.unittestEnabled": false,
-
 				// Extensions
-				"isort.args": ["--resolve-all-configs"],
-				"black-formatter.args": ["--config=./pyproject.toml"],
+				"isort.args": [
+					"--resolve-all-configs"
+				],
+				"black-formatter.args": [
+					"--config=./pyproject.toml"
+				],
 				"vim.textwidth": 120
 			},
 			"extensions": [

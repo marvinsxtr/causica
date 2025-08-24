@@ -1,55 +1,62 @@
-[tool.poetry]
+[project]
 name = "causica"
 version = "0.4.5"
 description = ""
+authors = [{ name = "Microsoft Research - Causica" }]
+requires-python = ">=3.10,<3.11"
 readme = "README.md"
-authors = ["Microsoft Research - Causica"]
-packages = [
-    { include = "causica", from = "src" }
-]
 license = "MIT"
+dependencies = [
+    "azureml-mlflow>=1.46.0,<2",
+    "dataclasses-json>=0.5.7,<0.6",
+    "jsonargparse<4.21.0",
+    "mlflow>=2.0.0,<3",
+    "numpy>=1.22.4,<2",
+    "pandas>=1.4.2,<2",
+    "pytorch-lightning[extra]>=2.1.0,<3",
+    "tensorboard>=2.9.0,<3",
+    "tensordict>=0.1.0,<0.2",
+    "torch==2.0.0",
+    "torchmetrics>=1.0.3,<2",
+    "types-PyYAML>=6.0.12.2,<7",
+    "igraph>=0.11.3,<0.12",
+]
 
-[tool.poetry.dependencies]
-azureml-mlflow = "^1.46.0"
-dataclasses-json = "^0.5.7"
-jsonargparse = "<4.21.0"  # 4.21.0 breaks lightning cli
-mlflow = "^2.0.0"
-numpy = "^1.22.4"
-pandas = "^1.4.2"
-python = "~3.10"
-pytorch-lightning = {version = "^2.1.0", extras= ["extra"]}
-seaborn = {version = "^0.12.2", optional = true}
-tensorboard = "^2.9.0"
-tensordict = "^0.1.0"
-torch = "2.0.0"
-torchmetrics = "^1.0.3"
-types-PyYAML = "^6.0.12.2"
-igraph ="^0.11.3"
+[project.optional-dependencies]
+seaborn = ["seaborn>=0.12.2,<0.13"]
 
-[tool.poetry.extras]
-seaborn = ["seaborn"]
+[dependency-groups]
+dev = [
+    "black[jupyter]>=22.6.0,<23",
+    "isort>=5.10.1,<6",
+    "jupyter>=1.0.0,<2",
+    "jupytext>=1.13.8,<2",
+    "mypy>=1.0.0,<2",
+    "pre-commit>=2.19.0,<3",
+    "pylint>=2.14.4,<3",
+    "pytest>=7.1.2,<8",
+    "pytest-cov>=3.0.0,<4",
+    "sphinx>=7.2.6,<8",
+    "sphinx-autoapi>=3.0.0,<4",
+    "numpydoc>=1.6.0,<2",
+    "sphinx-rtd-theme>=2.0.0,<3",
+    "sphinx-immaterial>=0.11.9,<0.12",
+    "myst-parser>=2.0.0,<3",
+    "myst-nb>=1.0.0,<2",
+]
 
-[tool.poetry.dev-dependencies]
-black = {version="^22.6.0", extras=["jupyter"]}
-isort =  "^5.10.1"
-jupyter = "^1.0.0"
-jupytext = "^1.13.8"
-mypy = "^1.0.0"
-pre-commit = "^2.19.0"
-pylint = "^2.14.4"
-pytest = "^7.1.2"
-pytest-cov = "^3.0.0"
-sphinx = "^7.2.6"
-sphinx-autoapi = "^3.0.0"
-numpydoc = "^1.6.0"
-sphinx-rtd-theme = "^2.0.0"
-sphinx-immaterial = "^0.11.9"
-myst-parser = "^2.0.0"
-myst-nb = "^1.0.0"
+[tool.hatch.build.targets.sdist]
+include = ["src/causica"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src/causica"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/causica" = "causica"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.black]
 line-length = 120
@@ -318,6 +325,7 @@ disable = [
   "too-many-statements",
   "wrong-import-order",  # avoid conflicts with isort
   ]
+
 [tool.pylint.miscellaneous]
 # List of note tags to take in consideration, separated by a comma.
 notes = ["TODO"]
@@ -410,9 +418,6 @@ missing-member-max-choices = 1
 
 # Regex pattern to define which classes are considered mixins.
 mixin-class-rgx = ".*[Mm]ixin"
-
-# List of decorators that change the signature of a decorated function.
-# signature-mutators =
 
 [tool.pylint.variables]
 # Tells whether unused global variables should be treated as a violation.

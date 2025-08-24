@@ -644,7 +644,7 @@ requires-dist = [
     { name = "azureml-mlflow", specifier = ">=1.46.0,<2" },
     { name = "dataclasses-json", specifier = ">=0.5.7,<0.6" },
     { name = "igraph", specifier = ">=0.11.3,<0.12" },
-    { name = "jsonargparse", specifier = ">=4.21.0" },
+    { name = "jsonargparse", specifier = "==4.27.7" },
     { name = "mlflow", specifier = ">=2.0.0,<3" },
     { name = "numpy", specifier = ">=1.22.4,<2" },
     { name = "pandas", specifier = ">=1.4.2" },
@@ -2121,14 +2121,14 @@ wheels = [
 
 [[package]]
 name = "jsonargparse"
-version = "4.40.2"
+version = "4.27.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bd/ca/d0d0833cfba28631e25a9833fa0b3b336ea8f34ad35dde1108a0b834523f/jsonargparse-4.40.2.tar.gz", hash = "sha256:91e775b4ffba72bc5bbdab39d2f3efeb8ca84285def706d534edeed621cf0cb7", size = 203937 }
+sdist = { url = "https://files.pythonhosted.org/packages/af/7e/262e0036a304fa296a8cbbf302448d4c446b092bd34ecf3014ce279fb4ea/jsonargparse-4.27.7.tar.gz", hash = "sha256:480fa4b2f4c75f267cbaa13fbf4dc86553f27252041d1d9066f2d0e25bf6389b", size = 172212 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f4/ba/76643ce22e178c6f7873cc4684878162e6a558be159bb356691a12c8d0d9/jsonargparse-4.40.2-py3-none-any.whl", hash = "sha256:94c770c383786513355a176e093dee9fdef21d7afab837789106af17e307eae3", size = 225035 },
+    { url = "https://files.pythonhosted.org/packages/c0/89/8ebd5bff5067063356c9b5b6253807cd768b57d97a3ed9c5a18f11e8cfe4/jsonargparse-4.27.7-py3-none-any.whl", hash = "sha256:9042339d1fc9f39b2ef61c0f9c4accd144db14a3aab9359e9b2e883d3af3740a", size = 192231 },
 ]
 
 [package.optional-dependencies]
@@ -5478,10 +5478,10 @@ name = "triton"
 version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cmake", marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
-    { name = "filelock", marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
-    { name = "lit", marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
-    { name = "torch", version = "2.0.0+cu117", source = { registry = "https://download.pytorch.org/whl/cu117" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "cmake", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "filelock", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "lit", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "torch", version = "2.0.0+cu117", source = { registry = "https://download.pytorch.org/whl/cu117" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ca/31/ff6be541195daf77aa5c72303b2354661a69e717967d44d91eb4f3fdce32/triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:38806ee9663f4b0f7cd64790e96c579374089e58f49aac4a6608121aa55e2505", size = 63268585 },

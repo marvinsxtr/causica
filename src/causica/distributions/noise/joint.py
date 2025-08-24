@@ -165,7 +165,7 @@ class JointNoiseModule(NoiseModule[JointNoise]):
         if isinstance(x, tuple):
             x, y = x
             noise_distributions = {
-                name: noise_module((x.get(name), y.get(name))) for name, noise_module in self.noise_modules.items()
+                name: noise_module((x.get(name), y.get(name))) for name, noise_module in self.noise_modules.items()  # type: ignore[union-attr]
             }
         elif isinstance(x, TensorDict):
             noise_distributions = {name: noise_module(x.get(name)) for name, noise_module in self.noise_modules.items()}

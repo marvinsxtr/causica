@@ -510,11 +510,19 @@ wheels = [
 
 [[package]]
 name = "bitsandbytes"
-version = "0.41.1"
+version = "0.45.5"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/c9/5d/78586c7f0a72fcffa8b96ab7ec2b062fe1994e448929f6185ae8481f35fa/bitsandbytes-0.41.1.tar.gz", hash = "sha256:b3f8e7e1e5f88d4813d10ebd4072034ba6a18eca7f0e255376f8320e5499032c", size = 91071398 }
+dependencies = [
+    { name = "numpy" },
+    { name = "torch", version = "2.0.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cpu') or (platform_machine != 'aarch64' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'darwin' and extra == 'extra-7-causica-cpu') or (sys_platform != 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "torch", version = "2.0.0", source = { registry = "https://download.pytorch.org/whl/cu117" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (platform_machine != 'aarch64' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "torch", version = "2.0.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (extra != 'extra-7-causica-cpu' and extra != 'extra-7-causica-cu117')" },
+    { name = "torch", version = "2.0.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-7-causica-cpu') or (sys_platform == 'darwin' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "torch", version = "2.0.0+cu117", source = { registry = "https://download.pytorch.org/whl/cu117" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1e/2c/af22cd797fc368a9f098ed03015730e6568b884fe67f9940793d944a4b7b/bitsandbytes-0.41.1-py3-none-any.whl", hash = "sha256:b25228c27636367f222232ed4d1e1502eedd2064be215633734fb8ea0c1c65f4", size = 92575845 },
+    { url = "https://files.pythonhosted.org/packages/07/b7/cb5ce4d1a382cf53c19ef06c5fc29e85f5e129b4da6527dd207d90a5b8ad/bitsandbytes-0.45.5-py3-none-manylinux_2_24_x86_64.whl", hash = "sha256:a5453f30cc6aab6ccaac364e6bf51a7808d3da5f71763dffeb6d9694c59136e4", size = 76059261 },
+    { url = "https://files.pythonhosted.org/packages/a6/4c/77b535e025ce780d2ada8271c1e481fb7337c1df2588a52fe1c9bd87d2e8/bitsandbytes-0.45.5-py3-none-win_amd64.whl", hash = "sha256:ed1c61b91d989d6a33fd05737d6edbf5086d8ebc89235ee632c7a19144085da2", size = 75430204 },
 ]
 
 [[package]]
@@ -636,7 +644,7 @@ requires-dist = [
     { name = "azureml-mlflow", specifier = ">=1.46.0,<2" },
     { name = "dataclasses-json", specifier = ">=0.5.7,<0.6" },
     { name = "igraph", specifier = ">=0.11.3,<0.12" },
-    { name = "jsonargparse", specifier = "<4.21.0" },
+    { name = "jsonargparse", specifier = ">=4.21.0" },
     { name = "mlflow", specifier = ">=2.0.0,<3" },
     { name = "numpy", specifier = ">=1.22.4,<2" },
     { name = "pandas", specifier = ">=1.4.2" },
@@ -2113,14 +2121,14 @@ wheels = [
 
 [[package]]
 name = "jsonargparse"
-version = "4.20.1"
+version = "4.40.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3c/ba/2fc1147c68c07711aff021c77e305d2b03c4a67f8c1775fc58d77306475f/jsonargparse-4.20.1.tar.gz", hash = "sha256:3000f06db29f094ff360b020a766fb634f9786b68715e1563d376db51c1f4801", size = 214819 }
+sdist = { url = "https://files.pythonhosted.org/packages/bd/ca/d0d0833cfba28631e25a9833fa0b3b336ea8f34ad35dde1108a0b834523f/jsonargparse-4.40.2.tar.gz", hash = "sha256:91e775b4ffba72bc5bbdab39d2f3efeb8ca84285def706d534edeed621cf0cb7", size = 203937 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/eb/d7/d51be8ef9cb8c39075092c64e988145d87bf25b8813bcea801809445fd24/jsonargparse-4.20.1-py3-none-any.whl", hash = "sha256:416f173b37644745cc5b18bd14c5a6459b37bb085a4a76f6bfed91dd18fe8745", size = 184332 },
+    { url = "https://files.pythonhosted.org/packages/f4/ba/76643ce22e178c6f7873cc4684878162e6a558be159bb356691a12c8d0d9/jsonargparse-4.40.2-py3-none-any.whl", hash = "sha256:94c770c383786513355a176e093dee9fdef21d7afab837789106af17e307eae3", size = 225035 },
 ]
 
 [package.optional-dependencies]
@@ -4126,7 +4134,7 @@ wheels = [
 
 [[package]]
 name = "pytorch-lightning"
-version = "2.1.2"
+version = "2.3.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fsspec", extra = ["http"] },
@@ -4143,9 +4151,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f6/93/736cd955d0448fef2d9a4f174d61afb99a13b57c8f5d5287da49066cb5af/pytorch-lightning-2.1.2.tar.gz", hash = "sha256:58e26406215f3bfafe1b9b5b4bf37c9b8cff16494f7fd60e4db1ae37461b2b28", size = 594370 }
+sdist = { url = "https://files.pythonhosted.org/packages/e6/af/d20939d82145b36406e59a1f07ce2f7fe7bd191926636dc80f19b9a11c2c/pytorch-lightning-2.3.3.tar.gz", hash = "sha256:5f974015425af6873b5689246c5495ca12686b446751479273c154b73aeea843", size = 622981 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/eb/f29a4511a2675c9c14ca31cde4562f7676cf70396cf9e599210dca2f1e66/pytorch_lightning-2.1.2-py3-none-any.whl", hash = "sha256:8cf4a45f74e11f8ef3ad46bebb4a621eca7a990826226390767f948e86fff542", size = 776881 },
+    { url = "https://files.pythonhosted.org/packages/cf/1c/6122684e93864c09cf8010e27ad82b3b2f4864bd6864a40cb9e040752277/pytorch_lightning-2.3.3-py3-none-any.whl", hash = "sha256:4365e3f2874e223e63cb42628d24c88c2bdc8d1794453cac38c0619b31115fba", size = 812270 },
 ]
 
 [package.optional-dependencies]
@@ -5470,10 +5478,10 @@ name = "triton"
 version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cmake", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
-    { name = "filelock", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
-    { name = "lit", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
-    { name = "torch", version = "2.0.0+cu117", source = { registry = "https://download.pytorch.org/whl/cu117" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and sys_platform != 'win32' and extra == 'extra-7-causica-cu117') or (sys_platform == 'linux' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117') or (sys_platform == 'win32' and extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "cmake", marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "filelock", marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "lit", marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
+    { name = "torch", version = "2.0.0+cu117", source = { registry = "https://download.pytorch.org/whl/cu117" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-7-causica-cu117') or (sys_platform != 'linux' and extra == 'extra-7-causica-cu117') or (extra == 'extra-7-causica-cpu' and extra == 'extra-7-causica-cu117')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ca/31/ff6be541195daf77aa5c72303b2354661a69e717967d44d91eb4f3fdce32/triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:38806ee9663f4b0f7cd64790e96c579374089e58f49aac4a6608121aa55e2505", size = 63268585 },

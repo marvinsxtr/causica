@@ -350,6 +350,14 @@ disable = [
   "too-many-locals",
   "too-many-statements",
   "wrong-import-order",  # avoid conflicts with isort
+  "too-many-positional-arguments",   # R0917
+  "not-callable",                    # E1102 - PyTorch function false positives
+  "unsubscriptable-object",          # E1136
+  "no-value-for-parameter",          # E1120
+  "possibly-used-before-assignment", # E0606
+  "unused-import",                   # W0611
+  "unused-argument",                 # W0613
+  "duplicate-code",                  # R0801
   ]
 
 [tool.pylint.miscellaneous]

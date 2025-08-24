@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM --platform=linux/amd64 nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04 AS linux-base
+FROM --platform=linux/amd64 nvidia/cuda:11.7.1-cudnn8-devel-ubuntu22.04 AS linux-base
 
 # Utilities
 RUN apt-get update && apt-get upgrade -y
@@ -10,7 +10,7 @@ RUN apt-get install -y --no-install-recommends build-essential \
 FROM linux-base AS python-base
 
 # Workdir
-WORKDIR /srv/repo
+WORKDIR /workspaces/causica
 
 # Environment variables
 ENV UV_PROJECT_ENVIRONMENT="/venv"
@@ -19,7 +19,7 @@ ENV UV_COMPILE_BYTECODE=1
 ENV UV_LINK_MODE=copy
 ENV UV_PYTHON=python3.10
 ENV PATH="$UV_PROJECT_ENVIRONMENT/bin:$PATH"
-ENV PYTHONPATH="/srv/repo:$PYTHONPATH"
+ENV PYTHONPATH="/workspaces/causica:$PYTHONPATH"
 
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:0.6.6 /uv /usr/local/bin/uv

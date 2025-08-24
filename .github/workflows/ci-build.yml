@@ -32,7 +32,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        uv sync --extra seaborn
+        uv sync --extra seaborn --extra cpu
       if: steps.cache.outputs.cache-hit != 'true'
 
     - name: Verify pre-commit checks

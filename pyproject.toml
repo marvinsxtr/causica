@@ -3,7 +3,7 @@ name = "causica"
 version = "0.4.5"
 description = ""
 authors = [{ name = "Microsoft Research - Causica" }]
-requires-python = ">=3.10,<3.11"
+requires-python = ">=3.10"
 readme = "README.md"
 license = "MIT"
 dependencies = [
@@ -12,11 +12,11 @@ dependencies = [
     "jsonargparse<4.21.0",
     "mlflow>=2.0.0,<3",
     "numpy>=1.22.4,<2",
-    "pandas>=1.4.2,<2",
+    "pandas>=1.4.2",
     "pytorch-lightning[extra]>=2.1.0,<3",
     "tensorboard>=2.9.0,<3",
-    "tensordict>=0.1.0,<0.2",
-    "torchmetrics>=1.0.3,<2",
+    "tensordict>=0.1.0",
+    "torchmetrics>=1.0.3",
     "types-PyYAML>=6.0.12.2,<7",
     "igraph>=0.11.3,<0.12",
 ]
@@ -34,11 +34,11 @@ dev = [
     "jupytext>=1.13.8,<2",
     "mypy>=1.0.0,<2",
     "pre-commit>=2.19.0,<3",
-    "pylint>=2.14.4,<3",
+    "pylint>=2.17.7",
     "pytest>=7.1.2,<8",
     "pytest-cov>=3.0.0,<4",
     "sphinx>=7.2.6,<8",
-    "sphinx-autoapi>=3.0.0,<4",
+    "sphinx-autoapi>=3.0.0",
     "numpydoc>=1.6.0,<2",
     "sphinx-rtd-theme>=2.0.0,<3",
     "sphinx-immaterial>=0.11.9,<0.12",
@@ -126,7 +126,7 @@ limit-inference-results = 100
 
 # Minimum Python version to use for version dependent checks. Will default to the
 # version used to run pylint.
-py-version = "3.10"
+py-version = "3.12"
 
 # When enabled, pylint would attempt to guess common misconfiguration and emit
 # user-friendly hints instead of false-positive error messages.

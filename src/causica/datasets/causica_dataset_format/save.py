@@ -224,7 +224,7 @@ def intervention_or_counterfactual_to_causica_dict(
             "columns_to_nodes": columns_to_nodes,
         },
         "environments": [
-            convert_fn(data_obj, reference_obj, variables_metadata, effect_idxs)
+            convert_fn(data_obj, reference_obj, variables_metadata, effect_idxs)  # type: ignore[arg-type]
             for data_obj, reference_obj, effect_idxs in data_with_effects
         ],
     }

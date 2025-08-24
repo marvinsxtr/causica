@@ -2,8 +2,7 @@
 	"name": "Causica Devcontainer",
 	"build": {
 		"context": "..",
-		"dockerfile": "../Dockerfile",
-		"target": "dev"
+		"dockerfile": "../Dockerfile"
 	},
 	"runArgs": [
 		// give headspace for pytorch dataloaders passing tensors across processes
